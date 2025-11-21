@@ -6,9 +6,10 @@
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Blinker:wght@100;200;300;400;600;700;800;900&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Numans&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Orbit&family=Orbitron:wght@400..900&family=Oregano:ital@0;1&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+      <title>Document</title>
 </head>
 <body>
 
@@ -20,10 +21,10 @@
     </div>
 
     <ul class="nav-center">
-        <li><a href="#home">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#home">Home</a></li>
+    <li><a class="nav-link" href="#services">Services</a></li>
+    <li><a class="nav-link" href="#about">About</a></li>
+    <li><a class="nav-link" href="#projects">Projects</a></li>
     </ul>
 
     <div class="nav-right">
@@ -31,34 +32,49 @@
     </div>
 </nav>
 
+
+
+<!-- Mobile Nav -->
+    <nav class="mob-nav">
+    <div class="mob-nav-left">
+        <img src="./src/BTC Logo.png" class="profile-img" />
+    </div>
+
+    <div class="mob-nav-center">
+        <button onclick="toggleNav()" id="toggle-btn"><i class="fa-solid fa-angles-up"></i></button>
+        <a href="#contact" class="contact-btn">Contact</a>
+    </div>
+
+
+    <ul class="mob-nav-right">
+        <li><a href="#home">Home <div class="divider"></div></a></li>
+        <li><a href="#services">Services <div class="divider"></div></a></li>
+        <li><a href="#about">About <div class="divider"></div></a></li>
+        <li><a href="#projects">Projects <div class="divider"></div></a></li>
+    </ul>
+
+</nav>
+
+
+
+
+
 <!-- Main Section -->
+<div class="card" id="heroCard"></div>
 
-<section id="home" class="main">
+
+
+<section id="home" class="main s1">
     <div class="main-content">
+        
+        <div class="center-img"></div>
 
+        
         <div class="left-text">
             <h4>BEYOND THE CLICK</h4>
             <h1>WEBSITE</h1>
         </div>
 
-        <div class="center-img">
-            <div class="hero-card-wrap" id="hero-cardWrap">
-<div class="hero-card" id="hero-card">
-<div class="face front">
-<div>
-
-</div>
-</div>
-
-
-<div class="face back">
-<div>
-
-</div>
-</div>
-</div>
-</div>
-        </div>
 
         <div class="right-text">
             <h1>DEVELOPMENT</h1>
@@ -72,7 +88,7 @@
 
 <!-- Service Section -->
 
-<section id="services" class="service">
+<section data-aos="fade-up" id="services" class="service s2">
         <div class="service-content">
             <h1>what we can do for you</h1>
             <p>we go beyond clicks to deliver impactful strategies and real results. Let’s craft your digital success together!</p>
@@ -140,7 +156,7 @@
 
 <!-- About Section -->
 
-<div id="about" class="about-wrapper">
+<div data-aos="fade-up" id="about" class="about-wrapper s3">
     <div class="about-container">
 
         <!-- Left Content -->
@@ -181,7 +197,6 @@ We turn every click into real value — building campaigns that scale, convert, 
             </div>
 
 
-            <button class="story-btn">My Story</button>
         </div>
 
         <!-- Right Side Image -->
@@ -194,7 +209,7 @@ We turn every click into real value — building campaigns that scale, convert, 
 
 <!-- Projects Section -->
 
-<div id="projects" class="projects-container">
+<div  id="projects" class="projects-container">
     <div class="project-intro">
         <h1>Featured Projects</h1>
         <p>These selected projects reflect our passion for blending strategy with creativity — solving real problems through thoughtful design and impactful storytelling.</p>
@@ -253,7 +268,7 @@ We turn every click into real value — building campaigns that scale, convert, 
                 <div class="divider"></div>
                 <div class="question-card" id="question-card-4">
                     <div class="card-sec-1">
-                        <h1>4 . What do I need to provide before starting a project?</h1>
+                        <h1>4 . What do we need to provide before starting a project?</h1>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="card-sec-2">
@@ -334,7 +349,7 @@ We turn every click into real value — building campaigns that scale, convert, 
 
 
 
-<div class="footer">
+<footer  class="footer">
     <div class="sec-1">
         <div class="email">
             <h4>E-mail</h4>
@@ -360,12 +375,56 @@ We turn every click into real value — building campaigns that scale, convert, 
     <div class="sec-2">
     <p>© 2024 Beyond The Click. All rights reserved.</p>
     </div>
-</div>
+</footer>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- GSAP Core -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+  <!-- ScrollTrigger -->
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <!-- ScrambleTextPlugin -->
+  <script src="https://unpkg.com/gsap@3/dist/ScrambleTextPlugin.min.js"></script>
 <script src="script.js"></script>
+
+
+<!-- 
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const card = document.getElementById("heroCard");
+
+/* SECTION 1 → SECTION 2 */
+gsap.to(card, {
+    x: "55vw",
+    rotationY: 180,
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".s2",
+        start: "top bottom",
+        end: "top center",
+        scrub: 1
+    }
+});
+
+/* SECTION 2 → SECTION 3 */
+gsap.to(card, {
+    rotationY: 180,
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".s3",
+        start: "top bottom",
+        end: "top center",
+        scrub: 1
+    }
+});
+</script> -->
+
 </body>
 </html>
