@@ -313,13 +313,6 @@ function handleScreen() {
         gsap.to(heroCard, {
             rotate:10,
             duration:2,
-            scrollTrigger: {
-                trigger: heroCard,
-                scroller: "body",
-                start:"top 20%",
-                end:"top 100%",
-                scrub:1,
-            }
         });
 
 
