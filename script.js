@@ -315,7 +315,7 @@ function handleScreen() {
             duration:2,
             scrollTrigger: {
                 trigger: heroCard,
-                scroller: ".main",
+                scroller: "body",
                 start:"top 0%",
                 end:"top 50%",
                 scrub:1,
