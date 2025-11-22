@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    /* font-family: "Antonio", sans-serif; */
 }
 
 html {
@@ -52,6 +51,7 @@ body {
     display: flex;
     gap: 25px;
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .nav-center li a {
@@ -61,6 +61,7 @@ body {
     font-weight: 500;
     opacity: 0.9;
     transition: 0.3s;
+    overflow: hidden;
 }
 
 .nav-center li a:hover {
@@ -99,6 +100,10 @@ body {
 
 
 
+
+
+
+
 /* Main Container */
 
 .main {
@@ -109,6 +114,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: right;
+    position: relative;
     padding-top: 40px;
     color: #56B955;
 }
@@ -148,7 +154,7 @@ body {
     width: 40%;
     margin-top: 15vh;
     text-align: left;
-
+    
 }
 
 .right-text h1 {
@@ -170,32 +176,62 @@ body {
     display: block;
 }
 
-/* IMAGE CARD */
-.center-img {
-    position: absolute;
-    width: 30%;
+.center-img {           
+    width: 30vw;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    /* border: 2px solid red; */
 }
 
-.img-card {
-    padding: 12px;
+
+/* Hero Card */
+
+
+.hero-card {
+    height: 500px;
+    width: 350px;
     border-radius: 20px;
-    width: 250px;
-    height: 450px;
-    background: #e0e0e0;
-    transform: rotate(-2deg);
+    perspective: 1000px;
+    transition: all 0.6 ease;
+}
+.hero-card :hover{
+    transform: scale(1.1);
 }
 
-.img-card img {
+.hero-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s; /* optional */
+    border-radius: 20px;
+    transition: all 0.6 ease;
+}
+
+.hero-card .card-face {
+    position: absolute;
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: #77ef5b;
+    /* border: 1px solid #ccc; */
+}
+
+.card-face img{
     width: 100%;
 }
 
-
-#heroCard {
-    left: 10%;
-    display: none;
+.contact-card .card-back {
+    background: #ff0000;
+    transform: rotateY(180deg);
+    border-radius: 20px;
 }
-
-
 
 
 h2 {
@@ -313,7 +349,6 @@ p {
 
 .about-wrapper {
     width: 100%;
-    /* height: 100vh; */
     border: 2px solid;
     display: flex;
     justify-content: center;
@@ -345,7 +380,6 @@ p {
 .about-content p {
     opacity: 0.8;
     font-size: 0.8vw;
-    /* line-height: 1.5; */
 }
 
 /* Stats boxes */
@@ -435,7 +469,6 @@ p {
 
 .projects {
     width: 80%;
-    /* margin-left: auto; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -444,7 +477,6 @@ p {
 }
 
 .project {
-    border: 2px solid white;
     height: 50vh;
     width: 60%;
     display: flex;
@@ -587,7 +619,6 @@ p {
 
 .contact-container {
     width: 100%;
-    border: 2px solid red;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -595,7 +626,59 @@ p {
 }
 
 .contact-sec-1 {
+    /* border: 2px solid red; */
     width: 40%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1 ease;
+}
+
+.contact-card {
+    width: 20vw;
+    height: 50vh;
+    border-radius: 20px;
+    perspective: 1000px;
+    transition: all 0.6s ;
+    margin-bottom: 2vh;
+}
+.contact-card :hover{
+    transform: scale(1.1);
+}
+
+.contact-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s; 
+    border-radius: 20px;
+    transition: all 0.6 ease;
+}
+
+.contact-card .card-face {
+    position: absolute;
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    /* background: #eee; */
+    /* border: 1px solid #ccc; */
+}
+
+.card-face img{
+    width: 100%;
+}
+
+.contact-card .card-back {
+    background: #000000;
+    transform: rotateY(180deg);
+    border-radius: 20px;
 }
 
 .contact-sec-2 {
@@ -659,7 +742,7 @@ textarea::placeholder {
 .submit-btn {
     color: white;
     padding: 12px;
-    background: #111;
+    background: #56B955;
     font-family: "Antonio", sans-serif;
     border: none;
     border-radius: 6px;
@@ -668,7 +751,7 @@ textarea::placeholder {
 }
 
 .submit-btn:hover {
-    background: #56B955;
+    background: #111;
 }
 
 
@@ -1005,7 +1088,7 @@ textarea::placeholder {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 100vh;
+        height: 150vh;
     }
 
     .contact-sec-1,
@@ -1013,6 +1096,16 @@ textarea::placeholder {
         width: 80%;
         padding: 40px 20px;
     }
+
+    .contact-sec-1 .contact-card{
+        width: 20vh;
+        display: none;
+        height: 20vh;
+    }
+
+    /* .contact-card .contact-card-inner{
+
+    } */
 
     .contact-sec-2 h1 {
         font-size: 7vw;
@@ -1050,7 +1143,6 @@ textarea::placeholder {
     }
 
     .footer .sec-1 {
-        /* flex-direction: column; */
         gap: 20px;
         height: auto;
     }
@@ -1100,14 +1192,16 @@ textarea::placeholder {
     .mob-nav {
         position: static;
         width: 100%;
-        border: 2px solid red;
-        margin: 20px 0;
+        margin-bottom: 10vh;
         display: flex;
         justify-content: space-around;
         padding: 10px;
         z-index: 99;
-        /* flex-direction: column; */
         gap: 15px;
+    }
+
+    .mob-nav-left{
+        width: 20%;
     }
 
     .mob-nav-right {
@@ -1116,7 +1210,7 @@ textarea::placeholder {
         height: 100%;
         width: 100%;
         background-color: #00000046;
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(8px);
         z-index: 20;
         left: 0;
         display: flex;
@@ -1125,7 +1219,6 @@ textarea::placeholder {
         position: absolute;
         top: -100%;
         transition: 0.3s ease;
-        /* display: none; */
     }
     
     .mob-nav-right li{
@@ -1151,9 +1244,7 @@ textarea::placeholder {
 }
 
     .mob-nav-center {
-        /* flex-grow: 1; */
         width: 50%;
-        border: 2px solid red;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -1178,7 +1269,8 @@ textarea::placeholder {
     /* Main -Container */
 
     .main {
-        height: 80dvh;
+        margin-top: 5vh;
+        height: 100dvh;
         padding: 20px;
     }
 
@@ -1213,6 +1305,11 @@ textarea::placeholder {
         position: static;
         width: 100%;
         margin: 20px 0;
+    }
+
+    .hero-card{
+        height: 400px;
+        width: 250px;
     }
 
     /* Service Container */
@@ -1265,16 +1362,19 @@ textarea::placeholder {
 
 
     .about-wrapper {
-        height: 75dvh;
+        height: 65dvh;
     }
 
     .about-container {
         flex-direction: column;
         gap: 20px;
     }
-
+    
     .about-content {
         width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
         text-align: center;
     }
 
@@ -1322,7 +1422,7 @@ textarea::placeholder {
 
     .projects-container {
         margin: 5% 0;
-        margin: 30dvh 0dvh;
+        margin: 10dvh 0dvh;
     }
 
     .project-intro {
@@ -1404,6 +1504,7 @@ textarea::placeholder {
         height: auto !important;
         min-height: auto !important;
         width: 95%;
+        margin-top: 10vh;
     }
 
     .contact-sec-1,
@@ -1412,6 +1513,12 @@ textarea::placeholder {
         padding: 20px;
     }
 
+    .contact-sec-1 .contact-card{
+        width: 60vw;
+        margin: 3vh 0px;
+    }
+
+    
     .contact-sec-2 h1 {
         font-size: 28px;
     }
@@ -1450,12 +1557,10 @@ textarea::placeholder {
     /* Footer Section */
 
     .footer {
-        /* height: 45dvh;  REMOVE this */
         padding: 20px 0;
         flex-direction: column;
         gap: 20px;
         height: auto;
-        /* ADD */
         min-height: auto;
     }
 

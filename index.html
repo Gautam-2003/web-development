@@ -6,10 +6,11 @@
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Blinker:wght@100;200;300;400;600;700;800;900&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Numans&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Orbit&family=Orbitron:wght@400..900&family=Oregano:ital@0;1&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 </style>
+<link rel="shortcut icon" href="./src/apple-touch-icon-114x114.png" type="image/x-icon">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-      <title>Document</title>
+      <title>BTC | Beyond The Click</title>
 </head>
 <body>
 
@@ -60,21 +61,33 @@
 
 
 <!-- Main Section -->
-<div class="card" id="heroCard"></div>
+
 
 
 
 <section id="home" class="main s1">
+   
+
+
+
     <div class="main-content">
         
-        <div class="center-img"></div>
-
         
         <div class="left-text">
             <h4>BEYOND THE CLICK</h4>
             <h1>WEBSITE</h1>
         </div>
-
+        
+        <div class="center-img">
+            <div class="hero-card">
+                <div class="hero-card-inner">
+                    <div class="card-face">
+                        <img src="./src/BTC Logo.png" alt="">
+                    </div>
+                    <div class="card-back"></div>
+                </div>
+            </div>
+        </div>
 
         <div class="right-text">
             <h1>DEVELOPMENT</h1>
@@ -306,7 +319,16 @@ We turn every click into real value — building campaigns that scale, convert, 
 
 
 <div id="contact" class="contact-container">
-    <div class="contact-sec-1"></div>
+    <div class="contact-sec-1">
+        <div class="contact-card">
+  <div class="contact-card-inner">
+    <div class="card-face card-front"><img src="./src/BTC Logo.png" alt=""></div>
+    <div class="card-face card-back">
+        <img src="./src/person.jpg" alt="">
+    </div>
+  </div>
+</div>
+    </div>
 
     <div class="contact-sec-2">
         <h1>Let's work together</h1>
@@ -391,40 +413,11 @@ We turn every click into real value — building campaigns that scale, convert, 
 
   <!-- ScrambleTextPlugin -->
   <script src="https://unpkg.com/gsap@3/dist/ScrambleTextPlugin.min.js"></script>
+    
+  <!-- SplitTextPlugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script src="script.js"></script>
-
-
-<!-- 
-<script>
-gsap.registerPlugin(ScrollTrigger);
-
-const card = document.getElementById("heroCard");
-
-/* SECTION 1 → SECTION 2 */
-gsap.to(card, {
-    x: "55vw",
-    rotationY: 180,
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".s2",
-        start: "top bottom",
-        end: "top center",
-        scrub: 1
-    }
-});
-
-/* SECTION 2 → SECTION 3 */
-gsap.to(card, {
-    rotationY: 180,
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".s3",
-        start: "top bottom",
-        end: "top center",
-        scrub: 1
-    }
-});
-</script> -->
 
 </body>
 </html>
