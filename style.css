@@ -1294,7 +1294,6 @@ textarea::placeholder {
         margin-top: -2vh;
         height: 85dvh;
         padding: 20px;
-        border: 2px solid red;
     }
 
     .main-content {
