@@ -1294,6 +1294,7 @@ textarea::placeholder {
         margin-top: -2vh;
         height: 80dvh;
         padding: 20px;
+        border: 2px solid red;
     }
 
     .main-content {
@@ -1324,6 +1325,7 @@ textarea::placeholder {
 
     .right-text p {
         font-size: 18px;
+        margin-bottom: 2vh;
     }
 
     .center-img {
