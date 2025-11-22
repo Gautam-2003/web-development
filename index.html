@@ -337,35 +337,38 @@ We turn every click into real value — building campaigns that scale, convert, 
             your website, or your next big idea.
         </p>
 
-        <form class="contact-form">
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" placeholder="Enter your name" required>
-            </div>
+<form class="contact-form" method="POST" action="mail.php">
+    <input type="hidden" name="enquiry_form" value="1">
 
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="Enter your email" required>
-            </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name" name="name" id="name" required>
+    </div>
 
-            <div class="form-group">
-                <label>Service Needed</label>
-                <select required>
-                    <option value="">Select a service</option>
-                    <option>Web Development</option>
-                    <option>Web Design</option>
-                    <option>Graphic Design</option>
-                    <option>Other</option>
-                </select>
-            </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" name="email" id="email" required>
+    </div>
 
-            <div class="form-group">
-                <label>What can we help you with?</label>
-                <textarea placeholder="Write your message..." rows="5"></textarea>
-            </div>
+    <div class="form-group">
+        <label>Service Needed</label>
+        <select name="services" id="services" required>
+            <option value="">Select a service</option>
+            <option>Web Development</option>
+            <option>Web Design</option>
+            <option>Graphic Design</option>
+            <option>Other</option>
+        </select>
+    </div>
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+    <div class="form-group">
+        <label>What can we help you with?</label>
+        <textarea placeholder="Write your message..." rows="5" name="message" id="message" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
+
     </div>
 </div>
 

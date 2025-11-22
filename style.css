@@ -196,7 +196,7 @@ body {
     transition: all 0.6 ease;
 }
 .hero-card :hover{
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .hero-card-inner {
@@ -1185,6 +1185,10 @@ textarea::placeholder {
 /* Mobile Styles (<768px) */
 @media (max-width: 767px) {
 
+    body{
+        overflow-x: hidden;
+    }
+
     .nav {
         display: none;
     }
@@ -1209,7 +1213,7 @@ textarea::placeholder {
         gap: 10px;
         height: 100%;
         width: 100%;
-        background-color: #0000006f;
+        background-color: #000000da;
         backdrop-filter: blur(8px);
         z-index: 20;
         left: 0;
@@ -1316,7 +1320,7 @@ textarea::placeholder {
 
     .service {
         flex-direction: column;
-        height: 90dvh;
+        height: 70%;
         padding: 20px;
     }
 
