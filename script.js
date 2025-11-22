@@ -316,8 +316,8 @@ function handleScreen() {
             scrollTrigger: {
                 trigger: heroCard,
                 scroller: "body",
-                start:"top 0%",
-                end:"top 50%",
+                start:"top 20%",
+                end:"top 100%",
                 scrub:1,
             }
         });
