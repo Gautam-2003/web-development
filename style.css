@@ -1291,8 +1291,8 @@ textarea::placeholder {
     /* Main -Container */
 
     .main {
-        margin-top: 5vh;
-        height: 90dvh;
+        /* margin-top: 2vh; */
+        height: 85dvh;
         padding: 20px;
     }
 
@@ -1311,19 +1311,19 @@ textarea::placeholder {
     }
 
     .left-text h4 {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .left-text h1 {
-        font-size: 40px;
+        font-size: 45px;
     }
 
     .right-text h1 {
-        font-size: 35px;
+        font-size: 40px;
     }
 
     .right-text p {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .center-img {
@@ -1333,8 +1333,8 @@ textarea::placeholder {
     }
 
     .hero-card{
-        height: 400px;
-        width: 250px;
+        height: 450px;
+        width: 300px;
     }
 
     /* Service Container */
@@ -1528,7 +1528,7 @@ textarea::placeholder {
         flex-direction: column;
         height: auto !important;
         min-height: auto !important;
-        width: 95%;
+        width: 99%;
         margin-top: 10vh;
     }
 

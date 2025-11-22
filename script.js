@@ -329,7 +329,7 @@ function handleScreen() {
         
         gsap.to(heroCard, {
             x:"30vw",
-            rotate: "10deg",
+            rotate: "5deg",
             rotateY:"180deg",
             duration:3,
             scale:0.8,
@@ -348,7 +348,7 @@ function handleScreen() {
         
         gsap.to(heroCard, {
             x:"30vw",
-            rotate: "10deg",
+            rotate: "5deg",
             rotateY:"180deg",
             duration:3,
             scale:0.8,
