@@ -1291,14 +1291,14 @@ textarea::placeholder {
     /* Main -Container */
 
     .main {
-        /* margin-top: 2vh; */
+        margin-top: -2vh;
         height: 85dvh;
         padding: 20px;
     }
 
     .main-content {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
     }
 
     .left-text{

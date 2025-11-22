@@ -321,6 +321,35 @@ function handleScreen() {
                 scrub:1,
             }
         });
+
+
+        gsap.fromTo(
+    [projectCard1, projectCard3, projectCard5],   
+    { x: "-100px" },
+    { 
+        x: "50px",
+        scrollTrigger: {
+            trigger: ".projects-container", 
+            start: "top 80%",
+            end: "bottom+=100% top",
+            scrub: true
+        }
+    }
+);
+
+gsap.fromTo(
+    [projectCard2, projectCard4],
+    { x: "100px" },
+    { 
+        x: "-50px",
+        scrollTrigger: {
+            trigger: ".projects-container",
+            start: "top 80%",
+            end: "bottom+=100% top",
+            scrub: true
+        }
+    }
+);
         
         // Your mobile-specific code here
     } else if (tablet.matches) {
