@@ -186,7 +186,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid red; */
 }
 
 
@@ -194,8 +193,8 @@ body {
 
 
 .hero-card {
-    height: 500px;
-    width: 350px;
+    height: 600px;
+    width: 450px;
     border-radius: 20px;
     perspective: 800px;
     transform-style: preserve-3d;
@@ -224,6 +223,7 @@ body {
 .card-face img {
     border-radius: 50px;
     width: 100%;
+    object-fit: cover;
 }
 
 /* Back */
@@ -1111,6 +1111,16 @@ textarea::placeholder {
         height: 20vh;
     }
 
+    .contact-card-inner .card-face {
+        object-fit: contain;
+        border-radius: 50px;
+    }
+    .contact-card-inner .card-face img{
+        width: 50%;        
+        border-radius: 50px;
+
+    }
+
     /* .contact-card .contact-card-inner{
 
     } */
@@ -1291,6 +1301,9 @@ textarea::placeholder {
         text-align: center;
     }
 
+    .left-text{
+        display: block;
+    }
     .left-text,
     .right-text {
         width: 100%;
