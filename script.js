@@ -311,7 +311,7 @@ function handleScreen() {
     if (mobile.matches) {
         
         gsap.to(heroCard, {
-            rotateY:180,
+            rotate:10,
             duration:2,
             scrollTrigger: {
                 trigger: heroCard,
