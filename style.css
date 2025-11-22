@@ -108,6 +108,7 @@ body {
 
 .main {
     height: 100vh;
+    width: 100%;
     background: #000000;
     background-size: cover;
     background-position: center;
@@ -121,7 +122,7 @@ body {
 
 .main-content {
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     display: flex;
     align-items: center;
     justify-content: right;
@@ -132,6 +133,7 @@ body {
 .left-text {
     width: 30%;
     text-align: left;
+    margin-left: 2rem;
 }
 
 .left-text h4 {
@@ -151,7 +153,7 @@ body {
 /* RIGHT TEXT */
 
 .right-text {
-    width: 40%;
+    width: 35%;
     margin-top: 15vh;
     text-align: left;
     
@@ -177,10 +179,10 @@ body {
 }
 
 .center-img {           
-    width: 30vw;
+    width: 35%;
     display: flex;
-    justify-content: baseline;
-    align-items: baseline;
+    justify-content: center;
+    align-items: center;
     /* border: 2px solid red; */
 }
 
@@ -210,15 +212,14 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 20px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #77ef5b;
 }
 
 .card-face img {
+    border-radius: 50px;
     width: 100%;
 }
 
@@ -354,7 +355,6 @@ p {
 
 .about-wrapper {
     width: 100%;
-    /* border: 2px solid; */
     display: flex;
     justify-content: center;
     padding: 70px 0;
