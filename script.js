@@ -255,30 +255,23 @@ gsap.fromTo(
 
 // Mobile Nav Toggle
 
-let toggleBtn = document.getElementById("toggle-btn")
-let mobNavRight = document.querySelector(".mob-nav-right")
+let toggleBtn = document.getElementById("toggle-btn");
+let mobNavRight = document.querySelector(".mob-nav-right");
 
-function toggleNav(){
-    if (toggleBtn.style.transform === "rotate(0deg)") {
-        toggleBtn.style.transform = "rotate(180deg)";
-        mobNavRight.style.top = "8%"
-    } else {
-        toggleBtn.style.transform = "rotate(0deg)";
-        mobNavRight.style.top = "-100%"
-    }
-    
+function toggleNav() {
+    mobNavRight.classList.toggle("open");
+    toggleBtn.classList.toggle("rotated");
 }
 
+// Close menu when a link is clicked
 const links = document.querySelectorAll(".mob-nav-right li a");
-
 links.forEach(link => {
     link.addEventListener("click", () => {
-        links.forEach(l => l.classList.remove("active"));
-        link.classList.add("active");
-        toggleBtn.style.transform = "rotate(0deg)";
-        mobNavRight.style.top = "-100%"
+        mobNavRight.classList.remove("open");
+        toggleBtn.classList.remove("rotated");
     });
 });
+
 
 
 // Contact section Card
