@@ -1,429 +1,190 @@
-gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin,SplitText);
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, SplitText);
 
-
-
-
-    // Simple hover animation per link
-
-document.querySelectorAll(".nav-link").forEach(link => {
-  link.addEventListener('mouseover', () => {
-    // Create SplitText instance for this link only
-    let split = new SplitText(link, { type: "words" });
-
-    // Animate the words
-    gsap.from(split.words, {
-      y: 100,
-      autoAlpha: 0,
-      duration: 0.5,
-    //   stagger: 0.05,
-    });
-  });
-});
-
-
-
-
-
-
-
-
-
-
-
-// Service Cards Accordion
-
-
-const cards = document.querySelectorAll(".service-card");
-
-cards.forEach(card => {
-    const header = card.querySelector(".card-sec-1");
-    const content = card.querySelector(".card-sec-2");
-    const icon = card.querySelector(".card-sec-1 i");
-
-    // Set initial state
-    gsap.set(content, { height: 0, opacity: 0, display: "none" });
-    
-    header.addEventListener("click", () => {
-        
-        const isOpen = content.classList.contains("open");
-        
-        
-        cards.forEach(otherCard => {
-            if (otherCard !== card) {
-                const otherContent = otherCard.querySelector(".card-sec-2");
-                const otherIcon = otherCard.querySelector(".card-sec-1 i");
-                
-                if (otherContent.classList.contains("open")) {
-                    gsap.to(otherContent, {
-                        height: 0,
-                        opacity: 0,
-                        display: "none",
-                        duration: 0.35,
-                        ease: "power2.inOut"
-                    });
-                    
-                    gsap.to(otherIcon, { rotate: 180, duration: 0.3 });
-                    otherContent.classList.remove("open");
-                }
-            }
-        });
-        
-        // 🔽 TOGGLE CURRENT CARD
-        if (isOpen) {
-            // Close it
-            gsap.to(content, {
-                height: 0,
-                opacity: 0,
-                display: "none",
-                duration: 0.35,
-                ease: "power2.inOut"
-            });
-            
-            gsap.to(icon, { rotate: 180, duration: 0.3 });
-            content.classList.remove("open");
-            
-        } else {
-            // Open it
-            gsap.set(content, { display: "block" });
-            
-            gsap.to(content, {
-                height: "auto",
-                opacity: 1,
-                duration: 0.45,
-                ease: "power2.out"
-            });
-            
-            gsap.to(icon, { rotate: 0, duration: 0.3 });
-            content.classList.add("open");
-        }
-    });
-});
-
-
-
-
-
-
-// About Page Animation Counting
-
-function startCounting(id, target, speed) {
-    let element = document.getElementById(id);
-    let value = 0;
-
-    let interval = setInterval(() => {
-        value++;
-        element.innerText = value;
-
-        if (value === target) {
-            clearInterval(interval);
-        }
-    }, speed);
-}
-
-let started = false;
-
-// Observe the counter section
-const counterSection = document.getElementById("counter");
-
-const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !started) {
-        started = true;
-
-        // Start counters
-        startCounting("counting-num-1", 12, 50);
-        startCounting("counting-num-2", 270, 5);
-        startCounting("counting-num-3", 50, 20);
-    }
-}, {
-    threshold: 0.3 // Start when 30% of the section is visible
-});
-
-// Start observing
-observer.observe(counterSection);
-
-
-
-// Question Cards
-
-const questionCards = document.querySelectorAll(".question-card");
-
-questionCards.forEach(card => {
-    const header = card.querySelector(".card-sec-1");
-    const content = card.querySelector(".card-sec-2");
-    const icon = card.querySelector(".card-sec-1 i");
-    
-    // Initial closed state
-    gsap.set(content, { height: 0, opacity: 0, display: "none" });
-    
-    header.addEventListener("click", () => {
-        
-        const isOpen = content.classList.contains("open");
-        
-        // Close all other cards
-        questionCards.forEach(otherCard => {
-            if (otherCard !== card) {
-                const otherContent = otherCard.querySelector(".card-sec-2");
-                const otherIcon = otherCard.querySelector(".card-sec-1 i");
-                
-                if (otherContent.classList.contains("open")) {
-                    gsap.to(otherContent, {
-                        height: 0,
-                        opacity: 0,
-                        display: "none",
-                        duration: 0.35,
-                        ease: "power2.inOut"
-                    });
-                    
-                    gsap.to(otherIcon, { rotate: 180, duration: 0.3 });
-                    
-                    otherContent.classList.remove("open");
-                }
-            }
-        });
-        
-        // Toggle clicked card
-        if (isOpen) {
-            // Close
-            gsap.to(content, {
-                height: 0,
-                opacity: 0,
-                display: "none",
-                duration: 0.35,
-                ease: "power2.inOut"
-            });
-            
-            gsap.to(icon, { rotate: 180, duration: 0.3 });
-            content.classList.remove("open");
-        } else {
-            // Open
-            gsap.set(content, { display: "block" });
-            
-            gsap.to(content, {
-                height: "auto",
-                opacity: 1,
-                duration: 0.45,
-                ease: "power2.out"
-            });
-            
-            gsap.to(icon, { rotate: 0, duration: 0.3 });
-            
-            content.classList.add("open");
-        }
-    });
-});
-
-
-
-
-//  Projects Container
-// -----------------------------
-//  PROJECTS ANIMATION
-// -----------------------------
-
-// Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
 
-    const projectCard1 = document.getElementById("p1");
-    const projectCard2 = document.getElementById("p2");
-    const projectCard3 = document.getElementById("p3");
-    const projectCard4 = document.getElementById("p4");
-    const projectCard5 = document.getElementById("p5");
+  // -----------------------------
+  // NAV LINK HOVER ANIMATION
+  // -----------------------------
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const split = new SplitText(link, { type: "words" });
+    link.addEventListener('mouseover', () => {
+      gsap.from(split.words, { y: 100, autoAlpha: 0, duration: 0.5 });
+    });
+  });
 
-    // Check if GSAP + ScrollTrigger are loaded
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
-        console.error("GSAP or ScrollTrigger NOT loaded!");
-        return;
+  // -----------------------------
+  // ACCORDION FUNCTION (Service & Question Cards)
+  // -----------------------------
+  function initAccordion(selector) {
+    const cards = gsap.utils.toArray(selector);
+    cards.forEach(card => {
+      const header = card.querySelector(".card-sec-1");
+      const content = card.querySelector(".card-sec-2");
+      const icon = card.querySelector(".card-sec-1 i");
+
+      gsap.set(content, { height: 0, opacity: 0, display: "none" });
+
+      header.addEventListener("click", () => {
+        const isOpen = content.classList.contains("open");
+
+        // Close all other cards
+        cards.forEach(otherCard => {
+          if (otherCard !== card) {
+            const otherContent = otherCard.querySelector(".card-sec-2");
+            const otherIcon = otherCard.querySelector(".card-sec-1 i");
+            if (otherContent.classList.contains("open")) {
+              gsap.to(otherContent, { height: 0, opacity: 0, display: "none", duration: 0.35, ease: "power2.inOut" });
+              gsap.to(otherIcon, { rotate: 180, duration: 0.3 });
+              otherContent.classList.remove("open");
+            }
+          }
+        });
+
+        // Toggle current card
+        if (isOpen) {
+          gsap.to(content, { height: 0, opacity: 0, display: "none", duration: 0.35, ease: "power2.inOut" });
+          gsap.to(icon, { rotate: 180, duration: 0.3 });
+          content.classList.remove("open");
+        } else {
+          gsap.set(content, { display: "block" });
+          gsap.to(content, { height: "auto", opacity: 1, duration: 0.45, ease: "power2.out" });
+          gsap.to(icon, { rotate: 0, duration: 0.3 });
+          content.classList.add("open");
+        }
+      });
+    });
+  }
+
+  initAccordion(".service-card");
+  initAccordion(".question-card");
+
+  // -----------------------------
+  // ABOUT PAGE COUNTER
+  // -----------------------------
+  const counters = [
+    { id: "counting-num-1", value: 12, duration: 1 },
+    { id: "counting-num-2", value: 270, duration: 1.5 },
+    { id: "counting-num-3", value: 50, duration: 1 }
+  ];
+
+  let counterStarted = false;
+  const counterSection = document.getElementById("counter");
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !counterStarted) {
+      counterStarted = true;
+      counters.forEach(c => {
+        gsap.to(`#${c.id}`, {
+          innerText: c.value,
+          duration: c.duration,
+          snap: { innerText: 1 },
+          ease: "power1.in"
+        });
+      });
     }
+  }, { threshold: 0.3 });
 
-    gsap.registerPlugin(ScrollTrigger);
+  observer.observe(counterSection);
 
-    // Left → Right (1, 3, 5)
-    gsap.fromTo(
-        [projectCard1, projectCard3, projectCard5],
-        { x: "-300px", opacity: 0 },
-        { 
-            x: "0px",
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: ".projects-container",
-                start: "top 85%",
-                end: "bottom+=100 top",
-                scrub: 1
-            }
-        }
+  // -----------------------------
+  // PROJECTS ANIMATION
+  // -----------------------------
+  const projectCardsLeft = gsap.utils.toArray(["#p1", "#p3", "#p5"]);
+  const projectCardsRight = gsap.utils.toArray(["#p2", "#p4"]);
+
+  function animateProjects(cards, direction = "left") {
+    gsap.fromTo(cards,
+      { x: direction === "left" ? -300 : 300, opacity: 0 },
+      { 
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: { trigger: ".projects-container", start: "top 80%", end: "bottom 20%", scrub: 1 }
+      }
     );
+  }
 
-    // Right → Left (2, 4)
-    gsap.fromTo(
-        [projectCard2, projectCard4],
-        { x: "300px", opacity: 0 },
-        { 
-            x: "0px",
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: ".projects-container",
-                start: "top 85%",
-                end: "bottom+=100 top",
-                scrub: 1
-            }
+  animateProjects(projectCardsLeft, "left");
+  animateProjects(projectCardsRight, "right");
+
+  // -----------------------------
+  // HERO CARD ANIMATION
+  // -----------------------------
+  const heroCard = document.querySelector(".hero-card");
+  const mobile = window.matchMedia("(max-width: 599px)");
+  const tablet = window.matchMedia("(min-width: 600px) and (max-width: 1023px)");
+  const pc = window.matchMedia("(min-width: 1024px)");
+
+  function handleHeroCard() {
+    gsap.killTweensOf(heroCard); // Clear previous animations
+
+    if (mobile.matches) {
+      gsap.to(heroCard, { rotate: 10, duration: 2 });
+    } else {
+      gsap.to(heroCard, {
+        x: "30vw",
+        rotate: 5,
+        rotateY: 180,
+        scale: 0.8,
+        duration: 3,
+        scrollTrigger: {
+          trigger: heroCard,
+          scroller: "body",
+          start: "top 15%",
+          end: "top -175%",
+          scrub: true,
+          pin: true
         }
-    );
-});
+      });
+    }
+  }
 
+  handleHeroCard();
+  [mobile, tablet, pc].forEach(bp => bp.addEventListener("change", handleHeroCard));
 
+  // -----------------------------
+  // MOBILE NAV TOGGLE
+  // -----------------------------
+  const toggleBtn = document.getElementById("toggle-btn");
+  const mobNavRight = document.querySelector(".mob-nav-right");
 
-
-
-
-// Mobile Nav Toggle
-
-let toggleBtn = document.getElementById("toggle-btn");
-let mobNavRight = document.querySelector(".mob-nav-right");
-
-function toggleNav() {
+  toggleBtn.addEventListener("click", () => {
     mobNavRight.classList.toggle("open");
     toggleBtn.classList.toggle("rotated");
-}
+  });
 
-// Close menu when a link is clicked
-const links = document.querySelectorAll(".mob-nav-right li a");
-links.forEach(link => {
+  mobNavRight.querySelectorAll("li a").forEach(link => {
     link.addEventListener("click", () => {
-        mobNavRight.classList.remove("open");
-        toggleBtn.classList.remove("rotated");
+      mobNavRight.classList.remove("open");
+      toggleBtn.classList.remove("rotated");
     });
-});
+  });
 
-
-
-// Contact section Card
-let contactCard = document.querySelector(".contact-card-inner");
-
-gsap.to(contactCard, {
+  // -----------------------------
+  // CONTACT CARD ROTATION
+  // -----------------------------
+  const contactCard = document.querySelector(".contact-card-inner");
+  gsap.to(contactCard, {
     rotateY: 180,
     duration: 3,
     scrollTrigger: {
-        trigger: ".contact-sec-1",
-        start: "top 20%",
-        end: "bottom bottom",
-        scrub: true,
+      trigger: ".contact-sec-1",
+      start: "top 20%",
+      end: "bottom bottom",
+      scrub: true
     }
-});
+  });
 
-
-
-
-// Hero Card
-
-// Define breakpoints
-const mobile = window.matchMedia("(max-width: 599px)");
-const tablet = window.matchMedia("(min-width: 600px) and (max-width: 1023px)");
-const pc = window.matchMedia("(min-width: 1024px)");
-
-// Function to handle screen changes
-function handleScreen() {
-    let heroCard = document.querySelector(".hero-card")
-    if (mobile.matches) {
-        
-        gsap.to(heroCard, {
-            rotate:10,
-            duration:2,
-        });
-
-
-        gsap.fromTo(
-    [projectCard1, projectCard3, projectCard5],   
-    { x: "-100px" },
-    { 
-        x: "50px",
-        scrollTrigger: {
-            trigger: ".projects-container", 
-            start: "top 80%",
-            end: "bottom+=100% top",
-            scrub: true
-        }
-    }
-);
-
-gsap.fromTo(
-    [projectCard2, projectCard4],
-    { x: "100px" },
-    { 
-        x: "-50px",
-        scrollTrigger: {
-            trigger: ".projects-container",
-            start: "top 80%",
-            end: "bottom+=100% top",
-            scrub: true
-        }
-    }
-);
-        
-        // Your mobile-specific code here
-    } else if (tablet.matches) {
-        
-        let heroCard = document.querySelector(".hero-card")
-        
-        gsap.to(heroCard, {
-            x:"30vw",
-            rotate: "5deg",
-            rotateY:"180deg",
-            duration:3,
-            scale:0.8,
-            scrollTrigger: {
-                trigger: heroCard,
-                scroller: "body",
-                start: "top 15%",
-                end: "top -175%",
-                scrub: true,
-                pin: true,
-            }
-        });
-        // Your tablet-specific code here
-    } else if (pc.matches) {
-        
-        
-        gsap.to(heroCard, {
-            x:"30vw",
-            rotate: "5deg",
-            rotateY:"180deg",
-            duration:3,
-            scale:0.8,
-            scrollTrigger: {
-                trigger: heroCard,
-                scroller: "body",
-        start: "top 15%",
-        end: "top -175%",
-        scrub: true,
-        pin: true,
-    }
-});
-// Your PC-specific code here
-}
-}
-
-// Run on page load
-handleScreen();
-
-// Listen for changes when user resizes
-mobile.addEventListener('change', handleScreen);
-tablet.addEventListener('change', handleScreen);
-pc.addEventListener('change', handleScreen);
-
-
-
-
-// Dark Mode  Light Mode Toggle
-let modeToggle = document.getElementById("modeToggle");
-
-modeToggle.addEventListener("click", () => {
+  // -----------------------------
+  // DARK/LIGHT MODE TOGGLE
+  // -----------------------------
+  const modeToggle = document.getElementById("modeToggle");
+  modeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
+    modeToggle.innerHTML = document.body.classList.contains("dark") 
+      ? `<i class="fa-solid fa-lightbulb"></i>` 
+      : `<i class="fa-regular fa-lightbulb"></i>`;
+  });
 
-    if (document.body.classList.contains("dark")) {
-        modeToggle.innerHTML = `<i class="fa-solid fa-lightbulb"></i>`;
-    } else {
-        modeToggle.innerHTML = `<i class="fa-regular fa-lightbulb"></i>`;
-    }
 });
