@@ -1387,7 +1387,7 @@ textarea::placeholder {
     #modeToggle{
     top: 85%;
     cursor: pointer;
-    left: 15%;
+    right: 15%;
     height: 7vh;
     width: 15vw;
     font-size: 1.5rem;
