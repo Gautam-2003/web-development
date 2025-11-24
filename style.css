@@ -1237,6 +1237,7 @@ textarea::placeholder {
 
     body{
         overflow-x: hidden;
+        position: relative;
     }
 
     .nav {
