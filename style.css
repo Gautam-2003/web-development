@@ -1,3 +1,14 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -1283,11 +1294,11 @@ textarea::placeholder {
     }
 
     .mob-nav-right.open {
-    top: 10dvh;         /* menu open position */
+    top: 10dvh;        
 }
 
 /* rotate icon */
-#toggle-btn.rotated {
+#toggle-btn .rotated {
     transform: rotate(180deg);
     transition: 0.4s;
 }
@@ -1402,7 +1413,7 @@ textarea::placeholder {
     text-align: center;
     z-index: 20;
     position: fixed;
-}
+    }
 
     /* Service Container */
 
