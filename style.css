@@ -707,6 +707,7 @@ p {
 
 .contact-sec-2 {
     width: 60%;
+    height: 80%;
     padding: 60px;
     display: flex;
     flex-direction: column;
@@ -1386,7 +1387,7 @@ textarea::placeholder {
     #modeToggle{
     top: 85%;
     cursor: pointer;
-    right: 5%;
+    left: 15%;
     height: 7vh;
     width: 15vw;
     font-size: 1.5rem;
