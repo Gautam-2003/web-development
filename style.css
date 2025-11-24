@@ -256,6 +256,21 @@ p {
     opacity: 0.95
 }
 
+#modeToggle{
+    top: 85%;
+    cursor: pointer;
+    right: 5%;
+    height: 8vh;
+    width: 4vw;
+    font-size: 2rem;
+    border-radius: 50%;
+    border: 5px solid #56B955;
+    color: #56B955;
+    background-color: transparent;
+    text-align: center;
+    position: fixed;
+}
+
 
 
 /* Service container */
@@ -904,6 +919,21 @@ textarea::placeholder {
         margin: 20px 0;
     }
 
+    #modeToggle{
+    top: 85%;
+    cursor: pointer;
+    right: 5%;
+    height: 6vh;
+    width: 8vw;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 5px solid #56B955;
+    color: #56B955;
+    background-color: transparent;
+    text-align: center;
+    position: fixed;
+}
+
     /* Service Container */
 
     .service {
@@ -1353,6 +1383,23 @@ textarea::placeholder {
         width: 300px;
     }
 
+    #modeToggle{
+    top: 85%;
+    cursor: pointer;
+    right: 5%;
+    height: 7vh;
+    width: 15vw;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 5px solid #56B955;
+    color: #56B955;
+    background-color: rgba(0, 0, 0, 0.104);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    z-index: 20;
+    position: fixed;
+}
+
     /* Service Container */
 
     .service {
@@ -1639,4 +1686,59 @@ textarea::placeholder {
         width: 200px;
         height: 280px;
     }
+}
+
+
+
+/* 🌙 REAL DARK MODE */
+body.dark {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Navbar dark */
+body.dark .nav-section {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Section backgrounds */
+body.dark section,
+body.dark .section,
+body.dark div {
+    background-color: transparent;
+}
+
+/* Text elements */
+body.dark h1{
+    color: #56B955;
+}
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark span {
+    color: #000000 !important;
+}
+
+/* Green accent stays green — no change */
+
+/* Cards */
+body.dark .strategy-card {
+    background: #111;
+    border-color: #006322;
+}
+
+/* Buttons */
+body.dark button {
+    background: #111;
+    color: #e6e6e6;
+    border-color: #006322;
+}
+
+/* Image: DO NOT invert images */
+body.dark img {
+    filter: none !important;
 }

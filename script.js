@@ -387,3 +387,19 @@ handleScreen();
 mobile.addEventListener('change', handleScreen);
 tablet.addEventListener('change', handleScreen);
 pc.addEventListener('change', handleScreen);
+
+
+
+
+// Dark Mode  Light Mode Toggle
+let modeToggle = document.getElementById("modeToggle");
+
+modeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        modeToggle.innerHTML = `<i class="fa-solid fa-lightbulb"></i>`;
+    } else {
+        modeToggle.innerHTML = `<i class="fa-regular fa-lightbulb"></i>`;
+    }
+});
