@@ -1333,7 +1333,7 @@ textarea::placeholder {
         cursor: pointer;
         top: 10px;
         right: 20px;
-        transition: all 0.6 ease-in-out;
+        transition: all 0.6s ease-in-out;
     }
 
     .contact-btn {
