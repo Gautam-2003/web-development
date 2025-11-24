@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".nav-link").forEach(link => {
     const split = new SplitText(link, { type: "words" });
     link.addEventListener('mouseover', () => {
-      gsap.from(split.words, { y: 100, autoAlpha: 0, duration: 0.5 });
+      gsap.from(split.words, { y: 3, duration: 0.5 });
     });
   });
 
