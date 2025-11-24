@@ -216,63 +216,60 @@ questionCards.forEach(card => {
 
 
 //  Projects Container
-// Make sure GSAP plugins are registered at top of your file (you had this earlier):
-gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, SplitText);
+// -----------------------------
+//  PROJECTS ANIMATION
+// -----------------------------
 
-// Projects animation — robust version
+// Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // collect project nodes (in DOM order)
-  const projects = gsap.utils.toArray(".projects .project");
 
-  if (!projects || projects.length === 0) {
-    console.warn("No project elements found (.projects .project).");
-    return;
-  }
+    const projectCard1 = document.getElementById("p1");
+    const projectCard2 = document.getElementById("p2");
+    const projectCard3 = document.getElementById("p3");
+    const projectCard4 = document.getElementById("p4");
+    const projectCard5 = document.getElementById("p5");
 
-  // pick odd/even indexes robustly (works even if some are missing)
-  const leftSet  = projects.filter((_, i) => i % 2 === 0); // 0,2,4...
-  const rightSet = projects.filter((_, i) => i % 2 === 1); // 1,3,5...
-
-  // quick safety: bail if nothing
-  if (leftSet.length === 0 && rightSet.length === 0) {
-    console.warn("No items in leftSet or rightSet — check HTML structure.");
-    return;
-  }
-
-  // Animate leftSet from left -> right
-  gsap.fromTo(leftSet,
-    { x: "-300px" },
-    {
-      x: "300px",
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".projects-container",
-        start: "top 80%",      // when top of container hits 80% of viewport
-        end: "bottom top",     // when bottom of container reaches top of viewport
-        scrub: true,
-        invalidateOnRefresh: true
-      }
+    // Check if GSAP + ScrollTrigger are loaded
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+        console.error("GSAP or ScrollTrigger NOT loaded!");
+        return;
     }
-  );
 
-  // Animate rightSet from right -> left
-  gsap.fromTo(rightSet,
-    { x: "300px" },
-    {
-      x: "-300px",
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".projects-container",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true,
-        invalidateOnRefresh: true
-      }
-    }
-  );
+    gsap.registerPlugin(ScrollTrigger);
 
-  // helpful for debugging
-  console.log("Projects animation initialized — projects:", projects.length, "left:", leftSet.length, "right:", rightSet.length);
+    // Left → Right (1, 3, 5)
+    gsap.fromTo(
+        [projectCard1, projectCard3, projectCard5],
+        { x: "-300px", opacity: 0 },
+        { 
+            x: "0px",
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".projects-container",
+                start: "top 85%",
+                end: "bottom+=100 top",
+                scrub: 1
+            }
+        }
+    );
+
+    // Right → Left (2, 4)
+    gsap.fromTo(
+        [projectCard2, projectCard4],
+        { x: "300px", opacity: 0 },
+        { 
+            x: "0px",
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".projects-container",
+                start: "top 85%",
+                end: "bottom+=100 top",
+                scrub: 1
+            }
+        }
+    );
 });
 
 
