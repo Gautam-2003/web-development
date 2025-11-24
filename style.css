@@ -1235,6 +1235,10 @@ textarea::placeholder {
 /* Mobile Styles (<768px) */
 @media (max-width: 767px) and (min-width:200px) {
 
+    *{
+        outline: 1px solid red;
+    }
+
     body{
         overflow-x: hidden;
         position: relative;
