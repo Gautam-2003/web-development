@@ -105,39 +105,43 @@ cards.forEach(card => {
 
 // About Page Animation counting
 
-let count1 = document.getElementById("counting-num-1");
-let count2 = document.getElementById("counting-num-2");
-let count3 = document.getElementById("counting-num-3");
-
-
-let started = false; // prevents running twice
+// About Page Animation Counting
 
 function startCounting(id, target, speed) {
     let element = document.getElementById(id);
     let value = 0;
-    
+
     let interval = setInterval(() => {
         value++;
         element.innerText = value;
-        
+
         if (value === target) {
             clearInterval(interval);
         }
     }, speed);
 }
 
-window.addEventListener("scroll", () => {
-    const counter = document.getElementById("counter");
-    let position = counter.getBoundingClientRect().top;
-    
-    if (position < window.innerHeight && !started) {
+let started = false;
+
+// Observe the counter section
+const counterSection = document.getElementById("counter");
+
+const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !started) {
         started = true;
-        
+
+        // Start counters
         startCounting("counting-num-1", 12, 50);
         startCounting("counting-num-2", 270, 5);
         startCounting("counting-num-3", 50, 20);
     }
+}, {
+    threshold: 0.3 // Start when 30% of the section is visible
 });
+
+// Start observing
+observer.observe(counterSection);
+
 
 
 // Question Cards
