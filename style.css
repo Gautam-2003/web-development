@@ -11,6 +11,7 @@ html {
 
 body {
     height: 100vh;
+    width: 100vw;
     overflow-x: hidden;
     background-color: black;
 }
@@ -1234,10 +1235,6 @@ textarea::placeholder {
 
 /* Mobile Styles (<768px) */
 @media (max-width: 767px) and (min-width:200px) {
-
-    *{
-        outline: 1px solid red;
-    }
 
     body{
         overflow-x: hidden;
